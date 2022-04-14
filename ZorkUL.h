@@ -20,11 +20,15 @@ private:
 	void goRoom(Command command);
     void createItems();
     void displayItems();
+    //void teleport(Command command);
+
+    void createCharacters();
 
 public:
 	ZorkUL();
 	void play();
 	string go(string direction);
+    void teleport(Command command);
 };
 
 #endif /*ZORKUL_H_*/
