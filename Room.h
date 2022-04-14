@@ -25,9 +25,14 @@ public:
 	string longDescription();
 	Room* nextRoom(string direction);
     void addItem(Item *inItem);
+    //void addWeapon(Weapon *inWeapon);
     string displayItem();
     int isItemInRoom(string inString);
     void removeItemFromRoom(int location);
+    bool allowPlay();
 };
+
+
+
 
 #endif

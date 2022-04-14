@@ -1,17 +1,33 @@
 #include "diceroll.h"
-#include <iostream>
-#include <cstdlib>
-#include <ctime>
+//preprocessor directive
+//operator overloading attempt
+#define random rand() % 6 +1
+using namespace d;
 
-int main()
+
+
+diceRoll::diceRoll(int a, int b){
+    a = redDie;
+    b = blueDie;
+    /*
+    diceRoll operator + (diceRoll const &obj){
+        diceRoll res;
+        res.redDie = redDie + obj.redDie;
+        res.blueDie = blueDie + obj.blueDie;
+        return res;
+
+    }*/
+}
+
+
+int diceRoll::roll()
 {
-   // seed the random number generator
-   // do it once, do it before generating a random number
-   srand((unsigned) time(0));
 
-   double total_number_of_rolls { };
-   double total_number_of_sixes { };
-   int again                    { };
+   // seed the random number generator
+
+
+
+    srand ((unsigned) time(0));
 
    while (true)
    {
@@ -20,12 +36,14 @@ int main()
 
       do
       {
-         roll = rand() % 6 + 1;
+         roll = random;
 
          std::cout << roll << ' ';
 
          number_of_rolls++;
       }
+
+
       while (roll != 6);
       std::cout << "\t(number of rolls): " << number_of_rolls << "\n\n";
 
@@ -40,7 +58,14 @@ int main()
       if (again == 0) { break; }
    }
 
-   std::cout << "Total number of sixes: " << total_number_of_sixes << '\n';
+   add <int>(2, 4, 8);
+   add <double>(44, 55, 66);
+
+
+   std::cout << "Total number of sixes, you attacked with maximum damage for each 6 rolled: " << total_number_of_sixes << '\n';
    std::cout << "Total number of rolls: " << total_number_of_rolls << '\n';
-   std::cout << "Average number of rolls: " << total_number_of_rolls / total_number_of_sixes << '\n';
+
+   return 0;
+
 }
+

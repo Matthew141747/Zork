@@ -13,7 +13,7 @@ vector<string> singleWordInput;
 
 wordle::wordle(string txt)
 {
-string txtFile = "wordle.txt.txt";
+string txtFile = "wordle.txt";
 input = " ";
 }
 
@@ -37,6 +37,24 @@ if (newfile.is_open()){
    txtFile =" ";
  }
 }
+void wordle::wordArray(string i, vector<string> v)
+{
+
+    string copy =i;
+    int len = i.length();
+    int pos, prevPos;
+    for(int i =1; i<=len-1;i++)
+    {
+        pos = i;
+        prevPos = 0;
+
+
+        v.push_back(copy.substr(prevPos,pos));
+        prevPos = i;
+    }
+}
+
+
 
 int wordle::game(Command command){
 
@@ -55,7 +73,7 @@ int wordle::game(Command command){
 
 
           int j = 0, successCount=0;
-          while(j<3){
+          while(j<6){
           for (int i = 0; i < 5; i++)
           {
 
@@ -89,19 +107,4 @@ int wordle::game(Command command){
 
 }
 
-void wordle::wordArray(string i, vector<string> v)
-{
 
-    string copy =i;
-    int len = i.length();
-    int pos, prevPos;
-    for(int i =1; i<=len-1;i++)
-    {
-        pos = i;
-        prevPos = 0;
-
-
-        v.push_back(copy.substr(prevPos,pos));
-        prevPos = i;
-    }
-}

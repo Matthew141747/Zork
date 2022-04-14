@@ -1,17 +1,19 @@
 #include "item.h"
 
-Item::Item (string inDescription, int inWeightGrams, float inValue/**, int weaponCheck*/) {
+
+
+Item::Item (string inDescription, int inWeightGrams, float inValue/* bool weaponCheck*/) {
 	description = inDescription;
 	setWeight(inWeightGrams);
 	value = inValue;
-	/**weaponCheck(isWeapon);*/
+    //SetWeaponCheck(weaponCheck);
 }
 
 Item::Item(string inDescription) {
 	description = inDescription;
 }
 
-void Item::setWeight(int inWeightGrams)
+inline void Item::setWeight(int inWeightGrams)
 {
     if (inWeightGrams > 9999 || inWeightGrams < 0)
        cout << "weight invalid, must be 0<weight<9999" ;
@@ -19,7 +21,7 @@ void Item::setWeight(int inWeightGrams)
 	   weightGrams = inWeightGrams;
 }
 
-void Item::setValue(float inValue)
+inline void Item::setValue(float inValue)
 {
     if (inValue > 9999 || inValue < 0)
        cout << "value invalid, must be 0<value<9999" ;
@@ -27,21 +29,27 @@ void Item::setValue(float inValue)
 	   value = inValue;
 }
 
-/**void Item::setWeaponCheck(int isWeapon)
+
+string Item::getShortDescription()
+{
+    return description;
+}
+
+string Item::getLongDescription()
+{
+    return " item(s), " + description + ".\n";
+}
+
+/*weapon::weapon(string description, bool weaponCheck){
+
+};*/
+
+/*void weapon::setWeaponCheck(int isWeapon)
 {
     if(isWeapon > 0 || isWeapon < 0)
         cout << "Item not a weapon" ;
     else
         cout << "Item is a weapon" ;
-}*/
-
-string Item::getShortDescription()
-{
-	return description;
 }
-
-string Item::getLongDescription()
-{
-	return " item(s), " + description + ".\n";
-}
+*/
 

@@ -21,6 +21,14 @@ string Room::shortDescription() {
 	return description;
 }
 
+ /*
+bool Room::allowPlay(){
+    if (extern canPlay = true){
+
+        return true;
+    }
+}
+*/
 string Room::longDescription() {
 	return "room = " + description + ".\n" + displayItem() + exitString();
 }
@@ -47,6 +55,13 @@ void Room::addItem(Item *inItem) {
     itemsInRoom.push_back(*inItem);
 }
 
+/*void Room::addWeapon(Item *inItem) {
+    //cout <<endl;
+    //cout << "Just added" + inItem->getLongDescription();
+    itemsInRoom.push_back(*inWeapon);
+}
+*/
+
 string Room::displayItem() {
     string tempString = "items in room = ";
     int sizeItems = (itemsInRoom.size());
@@ -67,7 +82,7 @@ int Room::numberOfItems() {
     return itemsInRoom.size();
 }
 
-int Room::isItemInRoom(string inString)
+inline int Room::isItemInRoom(string inString)
 {
     int sizeItems = (itemsInRoom.size());
     if (itemsInRoom.size() < 1) {
@@ -88,3 +103,7 @@ int Room::isItemInRoom(string inString)
     return -1;
 }
 
+
+//RoomAdvanced::RoomAdvanced(string description){
+
+//}
