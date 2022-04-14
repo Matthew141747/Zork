@@ -20,7 +20,12 @@ void ZorkUL::createCharacters(){
 void ZorkUL::createRooms()  {
 
     ptr[0] = new Room("a");
+        ptr[0]->addItem(new Item("x", 1, 11));
+        ptr[0]->addItem(new Item("y", 2, 22));
+
     ptr[1] = new Room("b");
+        ptr[1]->addItem(new Item("xx", 1, 11));
+        ptr[1]->addItem(new Item("yy", 1, 11));
     ptr[2] = new Room("c");
     ptr[3] = new Room("d");
     ptr[4] = new Room("e");
@@ -42,35 +47,8 @@ void ZorkUL::createRooms()  {
     ptr[8]->setExits(NULL, ptr[3], NULL, NULL);
 
     currentRoom = ptr[0];
-    /*Room *a, *b, *c , *d, *e, *f, *g, *h, *i;
 
-	a = new Room("a");
-        a->addItem(new Item("x", 1, 11));
-        a->addItem(new Item("y", 2, 22));
-	b = new Room("b");
-        b->addItem(new Item("xx", 3, 33));
-        b->addItem(new Item("yy", 4, 44));
-	c = new Room("c");
-	d = new Room("d");
-	e = new Room("e");
-	f = new Room("f");
-	g = new Room("g");
-	h = new Room("h");
-	i = new Room("i");
 
-//             (N, E, S, W)
-	a->setExits(f, b, d, c);
-	b->setExits(NULL, NULL, NULL, a);
-	c->setExits(NULL, a, NULL, NULL);
-	d->setExits(a, e, NULL, i);
-	e->setExits(NULL, NULL, NULL, d);
-	f->setExits(NULL, g, a, h);
-	g->setExits(NULL, NULL, NULL, f);
-	h->setExits(NULL, f, NULL, NULL);
-    i->setExits(NULL, d, NULL, NULL);
-
-        currentRoom = a;
-        */
 }
 
 /**
@@ -265,6 +243,7 @@ void ZorkUL::teleport(Command command)
      {
          currentRoom = ptr[8];
      }
+
      cout<<currentRoom->longDescription()<< endl;
 }
 

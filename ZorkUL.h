@@ -5,6 +5,7 @@
 #include "Parser.h"
 #include "Room.h"
 #include "item.h"
+#include "diceroll.h"
 #include <iostream>
 #include <string>
 using namespace std;
